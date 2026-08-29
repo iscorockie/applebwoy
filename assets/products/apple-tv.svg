@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900"><rect width="900" height="900" fill="#ffffff"/><ellipse cx="450" cy="700" rx="140" ry="15" fill="#0f172a" opacity=".07"/>
+<defs><linearGradient id="tv" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#2c3138"/><stop offset="1" stop-color="#14171b"/></linearGradient>
+<linearGradient id="rm" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#3a4048"/><stop offset="1" stop-color="#22262c"/></linearGradient></defs>
+<rect x="248" y="500" width="300" height="176" rx="26" fill="url(#tv)"/>
+<rect x="248" y="500" width="300" height="10" rx="5" fill="#454b54" opacity=".7"/>
+<circle cx="398" cy="588" r="9" fill="#5a6069"/>
+<rect x="596" y="352" width="92" height="330" rx="30" fill="url(#rm)"/>
+<circle cx="642" cy="424" r="34" fill="none" stroke="#5d646e" stroke-width="9"/>
+<rect x="620" y="486" width="44" height="7" rx="3.5" fill="#5d646e"/>
+<rect x="620" y="518" width="44" height="7" rx="3.5" fill="#5d646e"/>
+<rect x="620" y="550" width="44" height="7" rx="3.5" fill="#5d646e"/>
+</svg>
