@@ -3,696 +3,912 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Applebwoy Gadgets — Kampala</title>
+<title>Applebwoy — Apple Store Kampala | iPhone, Mac, iPad, Watch &amp; AirPods</title>
+<meta name="description" content="Applebwoy is Kampala's Apple specialist. Genuine iPhone, Mac, iPad, Apple Watch, AirPods and accessories in UGX. Order on WhatsApp, same-day delivery in Kampala." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg:       #0f0f1a;
-    --surface:  #181828;
-    --card:     #1f1f34;
-    --border:   #2a2a45;
-    --green:    #39d353;
-    --green-dim:#1e7a2e;
-    --amber:    #ffb800;
-    --white:    #f5f5f0;
-    --muted:    #8888aa;
-    --font-display: 'Syne', sans-serif;
-    --font-body:    'Inter', sans-serif;
+    --bg:        #ffffff;
+    --soft:      #f6f7f9;
+    --soft-2:    #eef1f5;
+    --ink:       #14161a;
+    --ink-2:     #4a5058;
+    --muted:     #868e99;
+    --line:      #e6e9ee;
+    --accent:    #f4601f;
+    --accent-so: #fff1ea;
+    --wa:        #25d366;
+    --star:      #ffb400;
+    --radius:    14px;
+    --shadow:    0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.06);
+    --shadow-lg: 0 12px 40px rgba(16,24,40,.12);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--white); font-family: var(--font-body); line-height: 1.6; }
-
-  /* NAV */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(15,15,26,0.92); backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%; height: 64px;
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font);
+    line-height: 1.55; -webkit-font-smoothing: antialiased;
   }
-  .logo { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; }
-  .logo span { color: var(--green); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color .2s; }
-  .nav-links a:hover { color: var(--white); }
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; color: inherit; }
+  button { font-family: inherit; }
+  .wrap { max-width: 1220px; margin: 0 auto; padding: 0 20px; }
+
+  /* ── ANNOUNCEMENT ─────────────────────────── */
+  .announce {
+    background: var(--ink); color: #fff; font-size: .78rem; letter-spacing: .01em;
+    text-align: center; padding: .55rem 20px;
+  }
+  .announce b { color: #ffcaa8; font-weight: 600; }
+
+  /* ── NAV ──────────────────────────────────── */
+  header {
+    position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,.92);
+    backdrop-filter: saturate(180%) blur(16px); border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; gap: 1.6rem; height: 68px; }
+  .logo { display: flex; align-items: center; gap: .5rem; font-weight: 800; font-size: 1.12rem; letter-spacing: -.03em; }
+  .logo svg { width: 19px; height: 23px; flex-shrink: 0; }
+  .logo em { font-style: normal; color: var(--accent); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; margin-left: .6rem; }
+  .nav-links a { font-size: .875rem; font-weight: 500; color: var(--ink-2); transition: color .18s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-search { margin-left: auto; position: relative; flex: 0 1 300px; }
+  .nav-search input {
+    width: 100%; border: 1px solid var(--line); background: var(--soft);
+    border-radius: 999px; padding: .58rem 1rem .58rem 2.4rem;
+    font-size: .84rem; color: var(--ink); outline: none; transition: border-color .18s, background .18s;
+  }
+  .nav-search input::placeholder { color: var(--muted); }
+  .nav-search input:focus { border-color: var(--accent); background: #fff; }
+  .nav-search svg { position: absolute; left: .85rem; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; color: var(--muted); }
   .nav-cta {
-    background: var(--green); color: #000; padding: 0.45rem 1.1rem;
-    border-radius: 6px; font-size: 0.8rem; font-weight: 700;
-    text-decoration: none; font-family: var(--font-display); letter-spacing: 0.03em;
-    transition: opacity .2s;
+    display: inline-flex; align-items: center; gap: .45rem; background: var(--accent); color: #fff;
+    padding: .6rem 1.15rem; border-radius: 999px; font-size: .82rem; font-weight: 600;
+    white-space: nowrap; transition: transform .18s, box-shadow .18s;
   }
-  .nav-cta:hover { opacity: 0.85; }
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-  .hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: all .3s; }
-  .mobile-menu { display: none; flex-direction: column; gap: 1.2rem; background: var(--surface); padding: 1.5rem 5%; border-bottom: 1px solid var(--border); }
-  .mobile-menu a { color: var(--muted); text-decoration: none; font-size: 1rem; font-weight: 500; }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(244,96,31,.32); }
+  .burger { display: none; flex-direction: column; gap: 4px; background: none; border: 0; cursor: pointer; padding: 6px; }
+  .burger span { width: 20px; height: 2px; background: var(--ink); border-radius: 2px; }
+  .mobile-menu { display: none; flex-direction: column; gap: .1rem; border-top: 1px solid var(--line); padding: .6rem 0 1rem; }
   .mobile-menu.open { display: flex; }
+  .mobile-menu a { padding: .7rem 20px; font-size: .95rem; font-weight: 500; color: var(--ink-2); }
+  .mobile-menu a:hover { background: var(--soft); color: var(--accent); }
 
-  /* HERO */
-  .hero {
-    min-height: 92vh; display: flex; align-items: center;
-    padding: 6rem 5% 4rem;
-    position: relative; overflow: hidden;
+  /* ── HERO ─────────────────────────────────── */
+  .hero { padding: 2rem 0 1rem; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 1.2rem; }
+  .hero-main {
+    position: relative; overflow: hidden; border-radius: 22px; min-height: 430px;
+    background: linear-gradient(135deg, #f3f5f8 0%, #e8edf5 46%, #f6efe9 100%);
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 1rem; padding: 2.6rem;
   }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(57,211,83,.09) 0%, transparent 70%);
-    pointer-events: none; z-index: 1;
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: .45rem; background: #fff; border: 1px solid var(--line);
+    color: var(--accent); font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    padding: .35rem .8rem; border-radius: 999px; margin-bottom: 1.1rem;
   }
-  .hero > * { position: relative; z-index: 2; }
-  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; }
-  .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 1.2rem; }
-  .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--green); }
-  h1 { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.2rem; }
-  h1 em { font-style: normal; color: var(--green); }
-  .hero-sub { color: var(--muted); font-size: 1.05rem; max-width: 460px; margin-bottom: 2rem; }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--green); color: #000; padding: 0.8rem 1.6rem;
-    border-radius: 8px; font-weight: 700; font-family: var(--font-display);
-    font-size: 0.95rem; text-decoration: none; transition: transform .2s, opacity .2s;
+  .hero-eyebrow i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .hero-main h1 { font-size: clamp(2.1rem, 4vw, 3.15rem); font-weight: 800; letter-spacing: -.035em; line-height: 1.04; margin-bottom: .9rem; }
+  .hero-main h1 em { font-style: normal; color: var(--accent); }
+  .hero-main p { color: var(--ink-2); font-size: .98rem; max-width: 380px; margin-bottom: 1.5rem; }
+  .hero-price { font-size: .85rem; color: var(--ink-2); margin-bottom: 1.4rem; }
+  .hero-price b { font-size: 1.5rem; font-weight: 800; color: var(--ink); letter-spacing: -.02em; }
+  .hero-actions { display: flex; gap: .7rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    padding: .82rem 1.5rem; border-radius: 999px; font-size: .88rem; font-weight: 600;
+    border: 1px solid transparent; cursor: pointer; transition: transform .18s, box-shadow .18s, background .18s, color .18s;
   }
-  .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
-  .btn-secondary {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    border: 1px solid var(--border); color: var(--white); padding: 0.8rem 1.6rem;
-    border-radius: 8px; font-weight: 600; font-family: var(--font-display);
-    font-size: 0.95rem; text-decoration: none; transition: border-color .2s, background .2s;
-  }
-  .btn-secondary:hover { border-color: var(--green); background: rgba(57,211,83,.06); }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-dark { background: var(--ink); color: #fff; }
+  .btn-dark:hover { box-shadow: 0 10px 26px rgba(20,22,26,.28); }
+  .btn-ghost { background: #fff; color: var(--ink); border-color: var(--line); }
+  .btn-ghost:hover { border-color: var(--ink); }
+  .btn-wa { background: var(--wa); color: #fff; }
+  .btn-wa:hover { box-shadow: 0 10px 26px rgba(37,211,102,.35); }
+  .hero-visual { display: flex; align-items: center; justify-content: center; height: 100%; }
+  .hero-visual img { max-height: 340px; width: auto; object-fit: contain; filter: drop-shadow(0 24px 40px rgba(16,24,40,.16)); }
 
-  /* HERO VISUAL */
-  .hero-visual { display: flex; align-items: center; justify-content: center; position: relative; }
-  .pulse-ring {
-    position: relative; width: 320px; height: 320px;
-    display: flex; align-items: center; justify-content: center;
+  .hero-side { display: grid; grid-template-rows: 1fr 1fr; gap: 1.2rem; }
+  .side-card {
+    position: relative; overflow: hidden; border-radius: 22px; padding: 1.6rem 1.7rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 205px;
   }
-  .pulse-ring::before, .pulse-ring::after {
-    content: ''; position: absolute; border-radius: 50%;
-    border: 1px solid rgba(57,211,83,0.25);
-    animation: pulse 3s ease-out infinite;
+  .side-card.a { background: linear-gradient(135deg, #eef2f7, #dfe7f2); }
+  .side-card.b { background: linear-gradient(135deg, #fdf0e8, #f7e3d6); }
+  .side-card .txt { position: relative; z-index: 2; }
+  .side-card small { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+  .side-card h3 { font-size: 1.32rem; font-weight: 800; letter-spacing: -.025em; margin: .3rem 0 .3rem; }
+  .side-card p { font-size: .8rem; color: var(--ink-2); margin-bottom: .8rem; }
+  .side-link { display: inline-flex; align-items: center; gap: .35rem; font-size: .8rem; font-weight: 700; color: var(--ink); }
+  .side-link:hover { color: var(--accent); }
+  .side-card img { max-height: 150px; width: auto; object-fit: contain; filter: drop-shadow(0 14px 26px rgba(16,24,40,.14)); }
+
+  /* ── TRUST STRIP ──────────────────────────── */
+  .trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2.4rem 0 .6rem; }
+  .trust-item {
+    display: flex; align-items: center; gap: .8rem; background: var(--soft);
+    border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.15rem;
   }
-  .pulse-ring::before { width: 100%; height: 100%; animation-delay: 0s; }
-  .pulse-ring::after  { width: 75%; height: 75%; animation-delay: .8s; }
-  @keyframes pulse {
-    0%   { transform: scale(.85); opacity: 0; }
-    30%  { opacity: 1; }
-    100% { transform: scale(1.15); opacity: 0; }
+  .trust-ico {
+    width: 38px; height: 38px; border-radius: 10px; background: #fff; border: 1px solid var(--line);
+    display: grid; place-items: center; flex-shrink: 0; color: var(--accent);
   }
-  .phone-icon-wrap {
-    width: 200px; height: 200px; border-radius: 50%;
-    background: var(--card); border: 2px solid var(--green);
-    overflow: hidden;
-    box-shadow: 0 0 60px rgba(57,211,83,.2), 0 0 120px rgba(57,211,83,.08);
-    z-index: 2; position: relative;
-  }
+  .trust-ico svg { width: 18px; height: 18px; }
+  .trust-item strong { display: block; font-size: .84rem; font-weight: 700; }
+  .trust-item span { font-size: .74rem; color: var(--muted); }
 
-  .hero-badges { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.8rem; }
-  .badge { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 0.3rem 0.8rem; font-size: 0.75rem; color: var(--muted); }
-  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+  /* ── SECTION HEADS ────────────────────────── */
+  .sec { padding: 3.4rem 0; }
+  .sec-head { text-align: center; margin-bottom: 2rem; }
+  .sec-head.row { display: flex; align-items: flex-end; justify-content: space-between; text-align: left; gap: 1rem; }
+  .sec-label { font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: .35rem; }
+  .sec-title { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; letter-spacing: -.035em; }
+  .sec-sub { color: var(--muted); font-size: .9rem; margin-top: .3rem; }
+  .see-all { display: inline-flex; align-items: center; gap: .35rem; font-size: .8rem; font-weight: 700; color: #fff; background: var(--accent); padding: .5rem 1rem; border-radius: 999px; white-space: nowrap; }
+  .see-all:hover { filter: brightness(1.05); }
 
-  /* MARQUEE */
-  .marquee-wrap { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 1rem 0; background: var(--surface); }
-  .marquee-track { display: flex; gap: 3rem; animation: marquee 20s linear infinite; white-space: nowrap; width: max-content; }
-  .marquee-track span { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-  .marquee-track span.accent { color: var(--green); }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-  /* SECTION SHARED */
-  section { padding: 5rem 5%; max-width: 1200px; margin: 0 auto; }
-  .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 0.6rem; }
-  .section-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.6rem; }
-  .section-sub { color: var(--muted); font-size: 0.95rem; max-width: 520px; }
-
-  /* CATEGORIES */
-  .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+  /* ── CATEGORIES ───────────────────────────── */
+  .cat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
   .cat-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 12px; padding: 1.4rem 1rem;
-    text-align: center; cursor: pointer; text-decoration: none; color: var(--white);
-    transition: border-color .2s, transform .2s, background .2s;
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem .8rem 1.05rem;
+    text-align: center; cursor: pointer; transition: border-color .18s, transform .18s, box-shadow .18s;
   }
-  .cat-card:hover { border-color: var(--green); transform: translateY(-3px); background: rgba(57,211,83,.04); }
-  .cat-icon { font-size: 2rem; margin-bottom: 0.6rem; display: block; }
-  .cat-card span { font-size: 0.82rem; font-weight: 600; display: block; }
-  .cat-card small { color: var(--muted); font-size: 0.72rem; }
+  .cat-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+  .cat-thumb { height: 88px; display: grid; place-items: center; margin-bottom: .55rem; background: var(--soft); border-radius: 10px; overflow: hidden; }
+  .cat-thumb img { max-height: 80px; width: auto; object-fit: contain; }
+  .cat-card strong { display: block; font-size: .84rem; font-weight: 700; }
+  .cat-card span { font-size: .7rem; color: var(--muted); }
 
-  /* PRODUCTS */
-  #shop { max-width: 1200px; }
-  .product-filters { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 2rem 0 1.5rem; }
-  .filter-btn {
-    padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
-    border: 1px solid var(--border); background: transparent; color: var(--muted);
-    cursor: pointer; transition: all .2s; font-family: var(--font-body);
+  /* ── PRODUCTS ─────────────────────────────── */
+  .filters { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.8rem; }
+  .fbtn {
+    padding: .48rem 1.05rem; border-radius: 999px; font-size: .82rem; font-weight: 600;
+    border: 1px solid var(--line); background: #fff; color: var(--ink-2); cursor: pointer; transition: all .18s;
   }
-  .filter-btn:hover, .filter-btn.active { border-color: var(--green); color: var(--green); background: rgba(57,211,83,.06); }
-  .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem; }
-  .product-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 14px; overflow: hidden;
-    transition: border-color .2s, transform .2s;
-    display: flex; flex-direction: column;
-  }
-  .product-card:hover { border-color: rgba(57,211,83,.4); transform: translateY(-4px); }
-  .product-img {
-    height: 200px; overflow: hidden; position: relative;
-    background: var(--surface);
-  }
-  .product-img img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform .4s ease;
-    display: block;
-  }
-  .product-card:hover .product-img img { transform: scale(1.06); }
-  .product-img-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to bottom, transparent 55%, rgba(15,15,26,.7) 100%);
-    pointer-events: none;
-  }
-  .product-img-fallback {
-    display: flex; align-items: center; justify-content: center;
-    height: 100%; font-size: 3rem; color: var(--muted);
-  }
-  .product-body { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
-  .product-cat { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 0.3rem; }
-  .product-name { font-family: var(--font-display); font-weight: 700; font-size: 0.98rem; line-height: 1.3; margin-bottom: 0.4rem; }
-  .product-desc { color: var(--muted); font-size: 0.78rem; flex: 1; margin-bottom: 0.8rem; }
-  .product-footer { display: flex; align-items: center; justify-content: space-between; }
-  .product-price { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--amber); }
-  .product-price small { font-size: 0.65rem; font-weight: 400; color: var(--muted); margin-left: 2px; }
-  .order-btn {
-    display: inline-flex; align-items: center; gap: 0.35rem;
-    background: var(--green); color: #000; padding: 0.45rem 0.9rem;
-    border-radius: 6px; font-size: 0.78rem; font-weight: 700;
-    border: none; cursor: pointer; font-family: var(--font-display);
-    text-decoration: none; transition: opacity .2s;
-  }
-  .order-btn:hover { opacity: 0.85; }
-  .product-badge { display: inline-block; background: var(--amber); color: #000; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; margin-bottom: 0.4rem; }
+  .fbtn:hover { border-color: var(--accent); color: var(--accent); }
+  .fbtn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-  /* WHY US */
-  #why { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  #why .inner { max-width: 1200px; margin: 0 auto; padding: 5rem 5%; }
-  .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
-  .why-card { padding: 1.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 14px; }
-  .why-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
-  .why-title { font-family: var(--font-display); font-weight: 700; margin-bottom: 0.4rem; font-size: 1rem; }
-  .why-desc { color: var(--muted); font-size: 0.83rem; line-height: 1.6; }
-
-  /* PAYMENT */
-  .payment-strip {
-    display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
-    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-    padding: 1.2rem 2rem; margin: 2.5rem auto 0; max-width: 700px;
-    font-size: 0.83rem; color: var(--muted);
+  .p-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.15rem; }
+  .p-card {
+    position: relative; background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s, border-color .2s;
   }
-  .payment-strip strong { color: var(--white); font-family: var(--font-display); }
-  .pmnt { display: inline-flex; align-items: center; gap: 0.4rem; }
-  .pmnt-dot { width: 8px; height: 8px; border-radius: 50%; }
-  .momo { background: #ffcb00; }
-  .airtel { background: #e30613; }
-  .cash { background: var(--green); }
-
-  /* CONTACT */
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-  .contact-info h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; }
-  .contact-info p { color: var(--muted); font-size: 0.92rem; margin-bottom: 1.5rem; }
-  .contact-items { display: flex; flex-direction: column; gap: 0.8rem; }
-  .contact-item { display: flex; align-items: flex-start; gap: 0.8rem; }
-  .contact-item-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; }
-  .contact-item-text strong { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 1px; }
-  .contact-item-text span { color: var(--muted); font-size: 0.82rem; }
-  .contact-item-text a { color: var(--green); text-decoration: none; }
-  .whatsapp-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
-    padding: 2rem; text-align: center;
+  .p-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: #dfe3ea; }
+  .p-media { position: relative; height: 210px; background: var(--soft); display: grid; place-items: center; padding: 1rem; overflow: hidden; }
+  .p-media img { max-height: 100%; max-width: 100%; width: auto; object-fit: contain; transition: transform .35s ease; }
+  .p-card:hover .p-media img { transform: scale(1.05); }
+  .p-fallback { display: grid; place-items: center; width: 100%; height: 100%; color: var(--muted); font-size: .78rem; gap: .4rem; text-align: center; }
+  .p-fallback svg { width: 34px; height: 34px; opacity: .45; }
+  .p-tag {
+    position: absolute; top: .7rem; left: .7rem; z-index: 3; font-size: .62rem; font-weight: 800;
+    letter-spacing: .07em; text-transform: uppercase; padding: .25rem .55rem; border-radius: 6px; color: #fff;
   }
-  .wa-icon { font-size: 3.5rem; margin-bottom: 0.8rem; }
-  .whatsapp-card h3 { font-family: var(--font-display); font-weight: 800; margin-bottom: 0.5rem; }
-  .whatsapp-card p { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
-  .wa-btn {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: #25d366; color: #000; padding: 0.85rem 1.8rem;
-    border-radius: 8px; font-weight: 700; font-family: var(--font-display);
-    font-size: 0.95rem; text-decoration: none; transition: opacity .2s;
+  .p-tag.new { background: var(--ink); }
+  .p-tag.hot { background: var(--accent); }
+  .p-tag.sale { background: #d92d20; }
+  .p-body { padding: .95rem 1rem 1.05rem; display: flex; flex-direction: column; flex: 1; }
+  .p-cat { font-size: .64rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+  .p-name { font-size: .93rem; font-weight: 700; letter-spacing: -.015em; line-height: 1.3; margin-bottom: .3rem; }
+  .p-desc { font-size: .76rem; color: var(--muted); line-height: 1.5; margin-bottom: .6rem; flex: 1; }
+  .p-rate { display: flex; align-items: center; gap: .3rem; margin-bottom: .5rem; font-size: .72rem; color: var(--muted); }
+  .p-stars { color: var(--star); letter-spacing: .04em; font-size: .76rem; }
+  .p-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: .6rem; }
+  .p-price { font-size: .98rem; font-weight: 800; letter-spacing: -.02em; }
+  .p-price s { display: block; font-size: .72rem; font-weight: 500; color: var(--muted); }
+  .p-order {
+    display: inline-flex; align-items: center; gap: .35rem; background: var(--accent-so); color: var(--accent);
+    border: 1px solid #ffd9c4; padding: .48rem .8rem; border-radius: 9px; font-size: .76rem; font-weight: 700;
+    cursor: pointer; transition: background .18s, color .18s, transform .18s;
   }
-  .wa-btn:hover { opacity: 0.88; }
-  .wa-hours { margin-top: 1.2rem; font-size: 0.78rem; color: var(--muted); }
+  .p-order:hover { background: var(--accent); color: #fff; transform: translateY(-1px); }
+  .p-order svg { width: 13px; height: 13px; }
+  .empty { grid-column: 1 / -1; text-align: center; padding: 3.5rem 1rem; color: var(--muted); font-size: .9rem; }
 
-  /* FOOTER */
-  footer {
-    background: var(--surface); border-top: 1px solid var(--border);
-    padding: 3rem 5% 2rem; max-width: 100%;
+  /* ── DEAL BANNER ──────────────────────────── */
+  .deal {
+    position: relative; overflow: hidden; border-radius: 22px; padding: 2.4rem 2.6rem;
+    background: linear-gradient(120deg, #eef3fa 0%, #e6edf7 40%, #fbeee5 100%);
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 1.5rem;
   }
-  .footer-inner { max-width: 1200px; margin: 0 auto; }
-  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; }
-  .footer-brand .logo { font-size: 1.1rem; margin-bottom: 0.5rem; display: block; }
-  .footer-brand p { color: var(--muted); font-size: 0.82rem; max-width: 260px; }
-  .footer-links h4 { font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; margin-bottom: 0.8rem; }
-  .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-  .footer-links ul a { color: var(--muted); text-decoration: none; font-size: 0.82rem; transition: color .2s; }
-  .footer-links ul a:hover { color: var(--green); }
-  .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-  .footer-bottom p { font-size: 0.75rem; color: var(--muted); }
-  .social-links { display: flex; gap: 0.8rem; }
-  .social-links a { width: 32px; height: 32px; border-radius: 6px; background: var(--card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 0.85rem; transition: border-color .2s; }
-  .social-links a:hover { border-color: var(--green); }
+  .deal-badges { display: flex; gap: 1.4rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+  .deal-badge { display: flex; align-items: center; gap: .5rem; font-size: .74rem; font-weight: 600; color: var(--ink-2); }
+  .deal-badge i { width: 30px; height: 30px; border-radius: 50%; background: #fff; display: grid; place-items: center; color: var(--accent); font-style: normal; }
+  .deal-badge svg { width: 15px; height: 15px; }
+  .deal h2 { font-size: clamp(1.5rem, 2.6vw, 2.05rem); font-weight: 800; letter-spacing: -.035em; margin-bottom: .5rem; }
+  .deal p { font-size: .88rem; color: var(--ink-2); margin-bottom: 1.2rem; max-width: 360px; }
+  .countdown { display: flex; gap: .6rem; margin-bottom: 1.4rem; }
+  .cd-unit { background: #fff; border: 1px solid var(--line); border-radius: 11px; padding: .55rem .1rem; width: 62px; text-align: center; }
+  .cd-unit b { display: block; font-size: 1.15rem; font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .cd-unit span { font-size: .6rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .deal-visual { display: flex; align-items: center; justify-content: center; gap: -2rem; }
+  .deal-visual img { max-height: 260px; width: auto; object-fit: contain; filter: drop-shadow(0 20px 34px rgba(16,24,40,.16)); }
 
-  /* CART TOAST */
+  /* ── DIFFERENCE ───────────────────────────── */
+  .diff { background: linear-gradient(120deg, #eef2f8, #f7f0ea); border-radius: 22px; padding: 2.6rem 2rem; text-align: center; }
+  .diff h2 { font-size: clamp(1.4rem, 2.6vw, 1.95rem); font-weight: 800; letter-spacing: -.035em; }
+  .diff > p { color: var(--ink-2); font-size: .87rem; margin: .35rem 0 1.8rem; }
+  .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .diff-card { background: #fff; border: 1px solid rgba(255,255,255,.7); border-radius: var(--radius); padding: 1.3rem 1rem; }
+  .diff-ico { width: 40px; height: 40px; border-radius: 50%; background: var(--accent-so); color: var(--accent); display: grid; place-items: center; margin: 0 auto .7rem; }
+  .diff-ico svg { width: 19px; height: 19px; }
+  .diff-card strong { display: block; font-size: .87rem; font-weight: 700; margin-bottom: .25rem; }
+  .diff-card span { font-size: .74rem; color: var(--muted); line-height: 1.5; display: block; }
+
+  /* ── PROMO BANNERS ────────────────────────── */
+  .promo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.15rem; }
+  .promo {
+    position: relative; overflow: hidden; border-radius: 18px; min-height: 260px; padding: 1.6rem;
+    display: flex; flex-direction: column; justify-content: flex-end; cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .promo:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .promo.p1 { background: linear-gradient(160deg, #dbe6f5, #eef3fa); }
+  .promo.p2 { background: linear-gradient(160deg, #f7e4d6, #fdf2ea); }
+  .promo.p3 { background: linear-gradient(160deg, #e3e7ee, #f4f6f9); }
+  .promo img { position: absolute; top: 50%; right: -6%; transform: translateY(-58%); max-height: 190px; width: auto; object-fit: contain; filter: drop-shadow(0 16px 28px rgba(16,24,40,.14)); }
+  .promo .pin { position: relative; z-index: 2; }
+  .promo small { display: inline-block; background: var(--accent); color: #fff; font-size: .62rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: .25rem .6rem; border-radius: 6px; margin-bottom: .6rem; }
+  .promo h3 { font-size: 1.22rem; font-weight: 800; letter-spacing: -.03em; }
+  .promo p { font-size: .78rem; color: var(--ink-2); margin-top: .2rem; }
+
+  /* ── CONTACT ──────────────────────────────── */
+  .contact-grid { display: grid; grid-template-columns: 1fr .85fr; gap: 2.4rem; align-items: center; }
+  .contact-items { display: grid; gap: .85rem; margin-top: 1.4rem; }
+  .c-item { display: flex; gap: .8rem; align-items: flex-start; }
+  .c-ico { width: 38px; height: 38px; border-radius: 10px; background: var(--soft); border: 1px solid var(--line); display: grid; place-items: center; flex-shrink: 0; color: var(--accent); }
+  .c-ico svg { width: 17px; height: 17px; }
+  .c-item strong { display: block; font-size: .82rem; font-weight: 700; }
+  .c-item span, .c-item a { font-size: .82rem; color: var(--muted); }
+  .c-item a:hover { color: var(--accent); }
+  .wa-card {
+    background: linear-gradient(150deg, #0f2f1c, #16281f); color: #fff;
+    border-radius: 20px; padding: 2.2rem 2rem; text-align: center;
+  }
+  .wa-card .wico { width: 58px; height: 58px; border-radius: 50%; background: var(--wa); display: grid; place-items: center; margin: 0 auto 1rem; }
+  .wa-card .wico svg { width: 30px; height: 30px; color: #fff; }
+  .wa-card h3 { font-size: 1.2rem; font-weight: 800; letter-spacing: -.025em; margin-bottom: .4rem; }
+  .wa-card p { font-size: .82rem; color: #b9c7bf; margin-bottom: 1.4rem; }
+  .wa-card .btn { width: 100%; }
+  .wa-note { margin-top: .9rem; font-size: .74rem; color: #8fa89a; }
+
+  /* ── FOOTER ───────────────────────────────── */
+  footer { background: var(--ink); color: #fff; margin-top: 3rem; padding: 3rem 0 1.6rem; }
+  .f-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 2rem; padding-bottom: 2.2rem; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .f-brand .logo { color: #fff; margin-bottom: .7rem; }
+  .f-brand p { font-size: .8rem; color: #98a0ac; max-width: 260px; line-height: 1.65; }
+  .f-col h4 { font-size: .8rem; font-weight: 700; margin-bottom: .9rem; letter-spacing: -.01em; }
+  .f-col ul { list-style: none; display: grid; gap: .5rem; }
+  .f-col a { font-size: .8rem; color: #98a0ac; transition: color .18s; }
+  .f-col a:hover { color: var(--accent); }
+  .f-pay { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .9rem; }
+  .pay-chip { display: inline-flex; align-items: center; gap: .35rem; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); border-radius: 7px; padding: .3rem .6rem; font-size: .7rem; color: #cbd2db; }
+  .pay-chip i { width: 7px; height: 7px; border-radius: 50%; display: block; }
+  .f-bot { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-top: 1.4rem; }
+  .f-bot p { font-size: .74rem; color: #7d8590; }
+  .f-social { display: flex; gap: .5rem; }
+  .f-social a { width: 34px; height: 34px; border-radius: 9px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); display: grid; place-items: center; transition: background .18s, border-color .18s; }
+  .f-social a:hover { background: var(--accent); border-color: var(--accent); }
+  .f-social svg { width: 15px; height: 15px; color: #fff; }
+  .disclaimer { font-size: .68rem; color: #6b727c; line-height: 1.6; margin-top: .9rem; max-width: 780px; }
+
+  /* ── FLOATING WA + TOAST ──────────────────── */
+  .fab {
+    position: fixed; right: 20px; bottom: 20px; z-index: 300;
+    width: 54px; height: 54px; border-radius: 50%; background: var(--wa);
+    display: grid; place-items: center; box-shadow: 0 10px 28px rgba(37,211,102,.42);
+    transition: transform .2s;
+  }
+  .fab:hover { transform: scale(1.07); }
+  .fab svg { width: 27px; height: 27px; color: #fff; }
   .toast {
-    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
-    background: var(--green); color: #000; padding: 0.7rem 1.2rem;
-    border-radius: 8px; font-weight: 700; font-size: 0.85rem;
-    font-family: var(--font-display); transform: translateY(100px); opacity: 0;
-    transition: all .35s cubic-bezier(.4,0,.2,1); pointer-events: none;
+    position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 120px); z-index: 400;
+    background: var(--ink); color: #fff; padding: .75rem 1.3rem; border-radius: 999px;
+    font-size: .82rem; font-weight: 600; opacity: 0; transition: all .35s cubic-bezier(.4,0,.2,1); pointer-events: none;
+    box-shadow: var(--shadow-lg);
   }
-  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast.show { transform: translate(-50%, 0); opacity: 1; }
 
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .nav-links, .nav-cta { display: none; }
-    .hamburger { display: flex; }
-    .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
-    .hero-sub { margin-left: auto; margin-right: auto; }
-    .hero-actions { justify-content: center; }
-    .hero-badges { justify-content: center; }
-    .hero-visual { order: -1; }
-    .pulse-ring { width: 240px; height: 240px; }
-    .phone-icon-wrap { width: 150px; height: 150px; }
-    .contact-grid { grid-template-columns: 1fr; }
-    section { padding: 3.5rem 5%; }
+  /* ── RESPONSIVE ───────────────────────────── */
+  @media (max-width: 1080px) {
+    .cat-grid { grid-template-columns: repeat(4, 1fr); }
+    .p-grid { grid-template-columns: repeat(3, 1fr); }
+    .trust { grid-template-columns: repeat(2, 1fr); }
+    .diff-grid { grid-template-columns: repeat(2, 1fr); }
+    .f-top { grid-template-columns: 1fr 1fr; }
   }
-  @media (max-width: 480px) {
-    .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  @media (max-width: 900px) {
+    .nav-links, .nav-search { display: none; }
+    .burger { display: flex; }
+    .nav { gap: .8rem; }
+    .nav-cta { margin-left: auto; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-main { grid-template-columns: 1fr; text-align: center; padding: 2rem 1.5rem; min-height: 0; }
+    .hero-main p, .hero-eyebrow { margin-left: auto; margin-right: auto; }
+    .hero-actions { justify-content: center; }
+    .hero-visual { order: -1; }
+    .hero-visual img { max-height: 230px; }
+    .hero-side { grid-template-rows: auto auto; }
+    .deal, .contact-grid { grid-template-columns: 1fr; }
+    .deal { padding: 2rem 1.5rem; text-align: center; }
+    .deal p, .deal-badges, .countdown { margin-left: auto; margin-right: auto; justify-content: center; }
+    .deal-visual { order: -1; }
+    .promo-grid { grid-template-columns: 1fr; }
+    .promo { min-height: 210px; }
+  }
+  @media (max-width: 640px) {
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .p-grid { grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+    .p-media { height: 160px; }
+    .sec { padding: 2.4rem 0; }
+    .sec-head.row { flex-direction: column; align-items: flex-start; }
+    .trust, .diff-grid { grid-template-columns: 1fr; }
+    .f-top { grid-template-columns: 1fr; }
+    .side-card { flex-direction: column; text-align: center; }
+    .side-card img { max-height: 110px; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <span class="logo">Apple<span>bwoy</span></span>
-  <ul class="nav-links">
-    <li><a href="#shop">Shop</a></li>
-    <li><a href="#categories">Categories</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="https://wa.me/256754011973" target="_blank" class="nav-cta" id="nav-wa">Order on WhatsApp</a>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#shop" onclick="closeMenu()">Shop</a>
-  <a href="#categories" onclick="closeMenu()">Categories</a>
-  <a href="#why" onclick="closeMenu()">Why Us</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
-  <a href="https://wa.me/256754011973" target="_blank" style="color:var(--green)">Order on WhatsApp</a>
+<!-- ANNOUNCEMENT -->
+<div class="announce">
+  Genuine Apple products in Kampala · Same-day delivery · Pay with <b>MTN MoMo</b>, <b>Airtel Money</b> or cash
 </div>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo" aria-label="Applebwoy home">
+      <svg viewBox="0 0 170 200" fill="currentColor" aria-hidden="true"><path d="M150.4 152.6c-2.8 6.4-6.1 12.3-9.9 17.7-5.2 7.4-9.5 12.5-12.8 15.3-5.1 4.7-10.6 7.1-16.5 7.3-4.2 0-9.3-1.2-15.2-3.6-5.9-2.4-11.4-3.6-16.4-3.6-5.2 0-10.8 1.2-16.9 3.6-6.1 2.4-11 3.7-14.8 3.8-5.6.2-11.2-2.3-16.7-7.5-3.6-3-8.1-8.3-13.4-15.9-5.7-8.1-10.4-17.5-14.1-28.2C.3 129.9 0 118.6 0 107.7c0-12.5 2.7-23.3 8.1-32.3 4.3-7.3 9.9-13 16.9-17.2 7-4.2 14.6-6.4 22.8-6.5 4.5 0 10.3 1.4 17.6 4.1 7.3 2.7 11.9 4.1 14 4.1 1.5 0 6.7-1.6 15.4-4.8 8.2-3 15.2-4.2 20.9-3.7 15.4 1.2 27 7.3 34.7 18.3-13.8 8.4-20.6 20.1-20.5 35.1.1 11.7 4.4 21.4 12.7 29.1 3.8 3.6 8 6.4 12.7 8.4-1 2.9-2.1 5.8-3.3 8.5zM115.6 4c0 9.3-3.4 18-10.2 26.1-8.2 9.6-18.1 15.1-28.8 14.3-.1-1.1-.2-2.3-.2-3.5 0-8.9 3.9-18.5 10.8-26.4 3.5-4 7.9-7.3 13.2-9.9C105.7 2 110.7.6 115.4.3c.1 1.2.2 2.5.2 3.7z"/></svg>
+      Apple<em>bwoy</em>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#categories">Shop</a></li>
+      <li><a href="#deal">Deals</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="search" placeholder="Search iPhone, Mac, iPad…" aria-label="Search products" />
+    </div>
+    <a href="https://wa.me/256754011973" target="_blank" rel="noopener" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.8L0 24l6.3-1.6c1.7 1 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0zm7 17c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.8-5.7-5-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5.3.7 1 2.4 1.1 2.5.1.2.1.4 0 .6-.1.2-.2.4-.3.5l-.5.6c-.2.2-.3.3-.1.6.2.3.9 1.5 1.9 2.4 1.3 1.1 2.4 1.5 2.7 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.8.9 2.1 1 .3.2.5.2.6.4.1.1.1.7-.2 1.4z"/></svg>
+      Order on WhatsApp
+    </a>
+    <button class="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#categories" onclick="closeMenu()">Shop</a>
+    <a href="#deal" onclick="closeMenu()">Deals</a>
+    <a href="#products" onclick="closeMenu()">Products</a>
+    <a href="#why" onclick="closeMenu()">Why Us</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+  </nav>
+</header>
 
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-grid">
-    <div class="hero-content">
-      <div class="hero-eyebrow">Kampala's Gadget Plug</div>
-      <h1>The latest gear,<br/><em>delivered.</em></h1>
-      <p class="hero-sub">Phones, accessories, earbuds, tablets and more — original products at the best prices in Kampala. WhatsApp order in minutes.</p>
-      <div class="hero-actions">
-        <a href="#shop" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-          Shop Now
-        </a>
-        <a href="https://wa.me/256754011973" target="_blank" class="btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.97 0C5.36 0 0 5.36 0 11.97c0 2.1.55 4.07 1.51 5.78L0 24l6.47-1.49c1.65.9 3.53 1.42 5.5 1.42C18.58 23.93 24 18.57 24 11.97 24 5.36 18.58 0 11.97 0z"/></svg>
-          Chat with Us
-        </a>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <div class="hero-copy">
+          <span class="hero-eyebrow"><i></i> Kampala's Apple Plug</span>
+          <h1>All out Pro.<br/><em>iPhone 17 Pro.</em></h1>
+          <p>Forged aluminium unibody, A19 Pro chip and the best camera system ever on iPhone. Genuine, sealed and ready today.</p>
+          <div class="hero-price">From <b>UGX 4,780,000</b></div>
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-dark">Shop iPhone</a>
+            <a href="https://wa.me/256754011973?text=Hi%20Applebwoy!%20I%27d%20like%20to%20order%20an%20iPhone%2017%20Pro." target="_blank" rel="noopener" class="btn btn-ghost">Get a quote</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/products/iphone-17-pro.webp" alt="iPhone 17 Pro" width="680" height="528" />
+        </div>
       </div>
-      <div class="hero-badges">
-        <div class="badge"><span class="badge-dot"></span> Original Products</div>
-        <div class="badge"><span class="badge-dot"></span> MTN MoMo</div>
-        <div class="badge"><span class="badge-dot"></span> Kampala Delivery</div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="pulse-ring">
-        <div class="phone-icon-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=400&q=85"
-            alt="Latest smartphone"
-            style="width:100%;height:100%;object-fit:cover;border-radius:50%;"
-          />
+      <div class="hero-side">
+        <div class="side-card a">
+          <div class="txt">
+            <small>Now with M5</small>
+            <h3>MacBook Air</h3>
+            <p>From UGX 4,450,000</p>
+            <a href="#products" class="side-link" onclick="filterProducts('Mac')">Shop Mac →</a>
+          </div>
+          <img src="assets/products/macbook-air.webp" alt="MacBook Air" loading="lazy" width="680" height="528" />
+        </div>
+        <div class="side-card b">
+          <div class="txt">
+            <small>Free engraving</small>
+            <h3>AirPods Pro 3</h3>
+            <p>World's best ANC. UGX 870,000</p>
+            <a href="#products" class="side-link" onclick="filterProducts('AirPods')">Shop AirPods →</a>
+          </div>
+          <img src="assets/products/airpods-pro.svg" alt="AirPods Pro 3" loading="lazy" width="400" height="260" />
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track" id="marquee">
-    <span class="accent">✦ Applebwoy Gadgets</span>
-    <span>iPhones</span>
-    <span>Samsung Galaxy</span>
-    <span>Airpods</span>
-    <span>Tecno &amp; Infinix</span>
-    <span>Laptop Accessories</span>
-    <span class="accent">✦ MTN MoMo Accepted</span>
-    <span>Earbuds &amp; Earphones</span>
-    <span>Phone Cases</span>
-    <span>Power Banks</span>
-    <span>Chargers &amp; Cables</span>
-    <span class="accent">✦ Kampala Delivery</span>
-    <span>Tablets</span>
-    <span>Screen Protectors</span>
-    <span>Smartwatches</span>
-    <!-- duplicate for seamless scroll -->
-    <span class="accent">✦ Applebwoy Gadgets</span>
-    <span>iPhones</span>
-    <span>Samsung Galaxy</span>
-    <span>Airpods</span>
-    <span>Tecno &amp; Infinix</span>
-    <span>Laptop Accessories</span>
-    <span class="accent">✦ MTN MoMo Accepted</span>
-    <span>Earbuds &amp; Earphones</span>
-    <span>Phone Cases</span>
-    <span>Power Banks</span>
-    <span>Chargers &amp; Cables</span>
-    <span class="accent">✦ Kampala Delivery</span>
-    <span>Tablets</span>
-    <span>Screen Protectors</span>
-    <span>Smartwatches</span>
+    <!-- TRUST -->
+    <div class="trust">
+      <div class="trust-item">
+        <div class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div><strong>100% Genuine</strong><span>Sealed Apple stock</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v13H1z"/><path d="M14 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="17.5" cy="18.5" r="2"/></svg></div>
+        <div><strong>Same-day Delivery</strong><span>Anywhere in Kampala</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+        <div><strong>MoMo &amp; Airtel</strong><span>Or cash on delivery</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div><strong>After-sale Support</strong><span>Setup &amp; help included</span></div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- CATEGORIES -->
-<section id="categories">
-  <div class="section-label">Browse by type</div>
-  <h2 class="section-title">Categories</h2>
-  <p class="section-sub">From flagship phones to everyday accessories — find exactly what you need.</p>
-  <div class="cat-grid">
-    <!-- FIX: use onclick that prevents default and calls filterProducts correctly -->
-    <a href="#shop" class="cat-card" onclick="event.preventDefault(); filterProducts('Smartphones')">
-      <span class="cat-icon">📱</span>
-      <span>Smartphones</span>
-      <small>iPhone · Samsung · Tecno</small>
-    </a>
-    <a href="#shop" class="cat-card" onclick="event.preventDefault(); filterProducts('Audio')">
-      <span class="cat-icon">🎧</span>
-      <span>Audio</span>
-      <small>Earbuds · Earphones</small>
-    </a>
-    <a href="#shop" class="cat-card" onclick="event.preventDefault(); filterProducts('Accessories')">
-      <span class="cat-icon">🔌</span>
-      <span>Accessories</span>
-      <small>Cables · Chargers</small>
-    </a>
-    <a href="#shop" class="cat-card" onclick="event.preventDefault(); filterProducts('Power')">
-      <span class="cat-icon">🔋</span>
-      <span>Power Banks</span>
-      <small>Fast-charge &amp; portable</small>
-    </a>
-    <a href="#shop" class="cat-card" onclick="event.preventDefault(); filterProducts('Cases')">
-      <span class="cat-icon">🛡️</span>
-      <span>Cases &amp; Covers</span>
-      <small>Protection &amp; style</small>
-    </a>
-    <a href="#shop" class="cat-card" onclick="event.preventDefault(); filterProducts('Wearables')">
-      <span class="cat-icon">⌚</span>
-      <span>Wearables</span>
-      <small>Smartwatches &amp; bands</small>
-    </a>
-    <a href="#shop" class="cat-card" onclick="event.preventDefault(); filterProducts('Tablets')">
-      <span class="cat-icon">📲</span>
-      <span>Tablets</span>
-      <small>iPads &amp; Android</small>
-    </a>
-    <a href="#shop" class="cat-card" onclick="event.preventDefault(); filterProducts('Screen')">
-      <span class="cat-icon">🔲</span>
-      <span>Screen Guards</span>
-      <small>Tempered glass</small>
-    </a>
+<section class="sec" id="categories">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">Browse the line-up</div>
+      <h2 class="sec-title">Shop by category</h2>
+      <p class="sec-sub">Every Apple product family — nothing else.</p>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
   </div>
 </section>
 
-<!-- SHOP -->
-<section id="shop" style="max-width:1200px; margin:0 auto; padding:4rem 5%;">
-  <div class="section-label">All Products</div>
-  <h2 class="section-title">Featured Items</h2>
-  <p class="section-sub">Order instantly via WhatsApp — we confirm &amp; deliver to you.</p>
-
-  <div class="product-filters">
-    <button class="filter-btn active" onclick="filterProducts('All', this)">All</button>
-    <button class="filter-btn" onclick="filterProducts('Smartphones', this)">Smartphones</button>
-    <button class="filter-btn" onclick="filterProducts('Audio', this)">Audio</button>
-    <button class="filter-btn" onclick="filterProducts('Accessories', this)">Accessories</button>
-    <button class="filter-btn" onclick="filterProducts('Power', this)">Power Banks</button>
-    <button class="filter-btn" onclick="filterProducts('Cases', this)">Cases</button>
-    <button class="filter-btn" onclick="filterProducts('Wearables', this)">Wearables</button>
-    <button class="filter-btn" onclick="filterProducts('Tablets', this)">Tablets</button>
-    <button class="filter-btn" onclick="filterProducts('Screen', this)">Screen Guards</button>
+<!-- DEAL OF THE DAY -->
+<section class="sec" id="deal" style="padding-top:.5rem">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">Today's best deal</div>
+      <h2 class="sec-title">Deal of the Day</h2>
+    </div>
+    <div class="deal">
+      <div>
+        <div class="deal-badges">
+          <span class="deal-badge"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-1 8 9-12h-7z"/></svg></i> Latest chips</span>
+          <span class="deal-badge"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3Z"/></svg></i> Apple warranty</span>
+          <span class="deal-badge"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i> Free setup</span>
+        </div>
+        <h2>Hurry! Limited stock</h2>
+        <p>Apple Watch Series 11 (42mm GPS) — the ultimate way to watch your health. Save UGX 200,000 this week only.</p>
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div class="cd-unit"><b id="cd-d">02</b><span>Days</span></div>
+          <div class="cd-unit"><b id="cd-h">14</b><span>Hours</span></div>
+          <div class="cd-unit"><b id="cd-m">32</b><span>Mins</span></div>
+          <div class="cd-unit"><b id="cd-s">10</b><span>Secs</span></div>
+        </div>
+        <a href="https://wa.me/256754011973?text=Hi%20Applebwoy!%20I%20want%20the%20Apple%20Watch%20Series%2011%20deal%20at%20UGX%201%2C800%2C000." target="_blank" rel="noopener" class="btn btn-dark">Claim this deal</a>
+      </div>
+      <div class="deal-visual">
+        <img src="assets/products/watch-s11.svg" alt="Apple Watch Series 11" loading="lazy" width="680" height="528" style="border-radius:16px" />
+      </div>
+    </div>
   </div>
-
-  <div class="product-grid" id="productGrid"></div>
 </section>
 
-<!-- WHY US -->
-<div id="why">
-  <div class="inner">
-    <div class="section-label">Why choose us</div>
-    <h2 class="section-title">Your trusted gadget plug</h2>
-    <p class="section-sub">We've built a reputation in Kampala for quality, speed, and honest prices.</p>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon">✅</div>
-        <div class="why-title">100% Original</div>
-        <p class="why-desc">Every product is genuine. No clones, no fakes — just real devices you can trust.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">⚡</div>
-        <div class="why-title">Fast Delivery</div>
-        <p class="why-desc">Same-day delivery within Kampala. We bring the gadget straight to you.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">💬</div>
-        <div class="why-title">WhatsApp Ordering</div>
-        <p class="why-desc">No complicated checkout. Just chat with us — we handle the rest instantly.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">📞</div>
-        <div class="why-title">After-sale Support</div>
-        <p class="why-desc">Got a question after buying? We're always reachable. Your satisfaction matters.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">💰</div>
-        <div class="why-title">Best Prices</div>
-        <p class="why-desc">Competitive Kampala-market pricing. No hidden charges, no surprises.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">📦</div>
-        <div class="why-title">Wide Selection</div>
-        <p class="why-desc">From flagship phones to budget accessories — we stock it all under one roof.</p>
-      </div>
+<!-- PRODUCTS -->
+<section class="sec" id="products">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">All products</div>
+      <h2 class="sec-title">The full Apple line-up</h2>
+      <p class="sec-sub">Tap Order and we'll confirm availability on WhatsApp instantly.</p>
     </div>
+    <div class="filters" id="filters"></div>
+    <div class="p-grid" id="grid"></div>
+  </div>
+</section>
 
-    <div class="payment-strip">
-      <strong>We accept:</strong>
-      <span class="pmnt"><span class="pmnt-dot momo"></span> MTN MoMo</span>
-      <span class="pmnt"><span class="pmnt-dot airtel"></span> Airtel Money</span>
-      <span class="pmnt"><span class="pmnt-dot cash"></span> Cash on Delivery</span>
+<!-- WHY / DIFFERENCE -->
+<section class="sec" id="why" style="padding-top:0">
+  <div class="wrap">
+    <div class="diff">
+      <h2>What makes us different</h2>
+      <p>Clear benefits that make buying Apple in Kampala simple.</p>
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v13H1z"/><path d="M14 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="17.5" cy="18.5" r="2"/></svg></div>
+          <strong>Free Kampala delivery</strong>
+          <span>On every order above UGX 500,000, delivered the same day.</span>
+        </div>
+        <div class="diff-card">
+          <div class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <strong>24/7 WhatsApp support</strong>
+          <span>Round-the-clock help — before and after you buy.</span>
+        </div>
+        <div class="diff-card">
+          <div class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div>
+          <strong>7-day returns</strong>
+          <span>Sealed and faulty items exchanged within 7 days.</span>
+        </div>
+        <div class="diff-card">
+          <div class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <strong>Secure payment</strong>
+          <span>MTN MoMo, Airtel Money or cash — you choose.</span>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
+<!-- PROMO BANNERS -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="promo-grid">
+      <div class="promo p1" onclick="filterProducts('iPad')">
+        <img src="assets/products/ipad-air.svg" alt="iPad" loading="lazy" />
+        <div class="pin">
+          <small>From UGX 1,850,000</small>
+          <h3>iPad essentials</h3>
+          <p>Draw, study and stream on iPad.</p>
+        </div>
+      </div>
+      <div class="promo p2" onclick="filterProducts('Watch')">
+        <img src="assets/products/watch-ultra.svg" alt="Apple Watch" loading="lazy" />
+        <div class="pin">
+          <small>Up to 15% off</small>
+          <h3>New Apple Watch</h3>
+          <p>Track your health every day.</p>
+        </div>
+      </div>
+      <div class="promo p3" onclick="filterProducts('Accessories')">
+        <img src="assets/products/magsafe.svg" alt="Apple accessories" loading="lazy" />
+        <div class="pin">
+          <small>New arrivals</small>
+          <h3>Accessories</h3>
+          <p>MagSafe, AirTag, cables &amp; more.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CONTACT -->
-<section id="contact" style="max-width:1200px; margin:0 auto; padding:5rem 5%;">
-  <div class="contact-grid">
-    <div class="contact-info">
-      <div class="section-label">Get in touch</div>
-      <h2>Ready to order? Let's talk.</h2>
-      <p>Hit us up on WhatsApp for the fastest response. We usually reply within minutes during business hours.</p>
-      <div class="contact-items">
-        <div class="contact-item">
-          <div class="contact-item-icon">📞</div>
-          <div class="contact-item-text">
-            <strong>Phone / WhatsApp</strong>
-            <span><a href="tel:+256754011973">+256 754 011 973</a></span>
+<section class="sec" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="sec-label">Get in touch</div>
+        <h2 class="sec-title">Ready to order? Let's talk.</h2>
+        <p class="sec-sub">Message us on WhatsApp for the fastest response — we usually reply within minutes during business hours.</p>
+        <div class="contact-items">
+          <div class="c-item">
+            <div class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div>
+            <div><strong>Phone / WhatsApp</strong><a href="tel:+256754011973">+256 754 011 973</a></div>
           </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon">📍</div>
-          <div class="contact-item-text">
-            <strong>Location</strong>
-            <span>Kampala, Uganda</span>
+          <div class="c-item">
+            <div class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><strong>Location</strong><span>Kampala, Uganda</span></div>
           </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon">📸</div>
-          <div class="contact-item-text">
-            <strong>Instagram</strong>
-            <span><a href="https://www.instagram.com/applebwoy_gadgets_0754011973" target="_blank">@applebwoy_gadgets_0754011973</a></span>
+          <div class="c-item">
+            <div class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div>
+            <div><strong>Instagram</strong><a href="https://www.instagram.com/applebwoy_gadgets_0754011973" target="_blank" rel="noopener">@applebwoy_gadgets</a></div>
           </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon">🕐</div>
-          <div class="contact-item-text">
-            <strong>Hours</strong>
-            <span>Mon – Sat: 8:00 AM – 8:00 PM</span>
+          <div class="c-item">
+            <div class="c-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div><strong>Hours</strong><span>Mon – Sat: 8:00 AM – 8:00 PM</span></div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="whatsapp-card">
-      <div class="wa-icon">💬</div>
-      <h3>Order via WhatsApp</h3>
-      <p>Browse above, pick what you want, and tap the button to chat with us. We'll confirm availability, arrange payment, and handle delivery.</p>
-      <a href="https://wa.me/256754011973?text=Hi%20Applebwoy%20Gadgets!%20I%27d%20like%20to%20order%20a%20product%20from%20your%20store." target="_blank" class="wa-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.97 0C5.36 0 0 5.36 0 11.97c0 2.1.55 4.07 1.51 5.78L0 24l6.47-1.49c1.65.9 3.53 1.42 5.5 1.42C18.58 23.93 24 18.57 24 11.97 24 5.36 18.58 0 11.97 0z"/></svg>
-        Chat on WhatsApp
-      </a>
-      <div class="wa-hours">Usually replies within minutes 🟢</div>
+      <div class="wa-card">
+        <div class="wico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.8L0 24l6.3-1.6c1.7 1 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0zm7 17c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.8-5.7-5-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5.3.7 1 2.4 1.1 2.5.1.2.1.4 0 .6-.1.2-.2.4-.3.5l-.5.6c-.2.2-.3.3-.1.6.2.3.9 1.5 1.9 2.4 1.3 1.1 2.4 1.5 2.7 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.8.9 2.1 1 .3.2.5.2.6.4.1.1.1.7-.2 1.4z"/></svg></div>
+        <h3>Order via WhatsApp</h3>
+        <p>Pick your product above and tap Order. We confirm availability, arrange payment and deliver.</p>
+        <a href="https://wa.me/256754011973?text=Hi%20Applebwoy!%20I%27d%20like%20to%20order%20an%20Apple%20product." target="_blank" rel="noopener" class="btn btn-wa">Chat on WhatsApp</a>
+        <div class="wa-note">Usually replies within minutes 🟢</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="logo">Apple<span>bwoy</span> <span style="color:var(--muted);font-size:.75rem;font-weight:400;">Gadgets</span></span>
-        <p>Kampala's trusted gadget store. Original phones, accessories and electronics — delivered to you.</p>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <div class="logo">
+          <svg viewBox="0 0 170 200" fill="currentColor" aria-hidden="true"><path d="M150.4 152.6c-2.8 6.4-6.1 12.3-9.9 17.7-5.2 7.4-9.5 12.5-12.8 15.3-5.1 4.7-10.6 7.1-16.5 7.3-4.2 0-9.3-1.2-15.2-3.6-5.9-2.4-11.4-3.6-16.4-3.6-5.2 0-10.8 1.2-16.9 3.6-6.1 2.4-11 3.7-14.8 3.8-5.6.2-11.2-2.3-16.7-7.5-3.6-3-8.1-8.3-13.4-15.9-5.7-8.1-10.4-17.5-14.1-28.2C.3 129.9 0 118.6 0 107.7c0-12.5 2.7-23.3 8.1-32.3 4.3-7.3 9.9-13 16.9-17.2 7-4.2 14.6-6.4 22.8-6.5 4.5 0 10.3 1.4 17.6 4.1 7.3 2.7 11.9 4.1 14 4.1 1.5 0 6.7-1.6 15.4-4.8 8.2-3 15.2-4.2 20.9-3.7 15.4 1.2 27 7.3 34.7 18.3-13.8 8.4-20.6 20.1-20.5 35.1.1 11.7 4.4 21.4 12.7 29.1 3.8 3.6 8 6.4 12.7 8.4-1 2.9-2.1 5.8-3.3 8.5zM115.6 4c0 9.3-3.4 18-10.2 26.1-8.2 9.6-18.1 15.1-28.8 14.3-.1-1.1-.2-2.3-.2-3.5 0-8.9 3.9-18.5 10.8-26.4 3.5-4 7.9-7.3 13.2-9.9C105.7 2 110.7.6 115.4.3c.1 1.2.2 2.5.2 3.7z"/></svg>
+          Apple<em>bwoy</em>
+        </div>
+        <p>Kampala's Apple specialist. Genuine iPhone, Mac, iPad, Apple Watch and AirPods — delivered to your door.</p>
+        <div class="f-pay">
+          <span class="pay-chip"><i style="background:#ffcb00"></i> MTN MoMo</span>
+          <span class="pay-chip"><i style="background:#e30613"></i> Airtel Money</span>
+          <span class="pay-chip"><i style="background:#25d366"></i> Cash</span>
+        </div>
       </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
+      <div class="f-col">
+        <h4>Shop</h4>
         <ul>
-          <li><a href="#shop">Shop</a></li>
-          <li><a href="#categories">Categories</a></li>
-          <li><a href="#why">Why Us</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#products" onclick="filterProducts('iPhone')">iPhone</a></li>
+          <li><a href="#products" onclick="filterProducts('Mac')">Mac</a></li>
+          <li><a href="#products" onclick="filterProducts('iPad')">iPad</a></li>
+          <li><a href="#products" onclick="filterProducts('Watch')">Apple Watch</a></li>
+          <li><a href="#products" onclick="filterProducts('AirPods')">AirPods</a></li>
         </ul>
       </div>
-      <div class="footer-links">
+      <div class="f-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#why">Why Applebwoy</a></li>
+          <li><a href="#deal">Deals</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://wa.me/256754011973" target="_blank" rel="noopener">Support</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
         <h4>Contact</h4>
         <ul>
           <li><a href="tel:+256754011973">+256 754 011 973</a></li>
-          <li><a href="https://wa.me/256754011973" target="_blank">WhatsApp Us</a></li>
-          <li><a href="https://www.instagram.com/applebwoy_gadgets_0754011973" target="_blank">Instagram</a></li>
+          <li><a href="https://wa.me/256754011973" target="_blank" rel="noopener">WhatsApp us</a></li>
+          <li><a href="https://www.instagram.com/applebwoy_gadgets_0754011973" target="_blank" rel="noopener">Instagram</a></li>
+          <li><span style="font-size:.8rem;color:#98a0ac">Kampala, Uganda</span></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Applebwoy Gadgets, Kampala Uganda. All rights reserved.</p>
-      <div class="social-links">
-        <a href="https://wa.me/256754011973" target="_blank" title="WhatsApp">💬</a>
-        <a href="https://www.instagram.com/applebwoy_gadgets_0754011973" target="_blank" title="Instagram">📸</a>
-        <a href="tel:+256754011973" title="Call">📞</a>
+    <div class="f-bot">
+      <p>© 2026 Applebwoy, Kampala Uganda. All rights reserved.</p>
+      <div class="f-social">
+        <a href="https://wa.me/256754011973" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.8L0 24l6.3-1.6c1.7 1 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0zm7 17c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.8-5.7-5-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5.3.7 1 2.4 1.1 2.5.1.2.1.4 0 .6-.1.2-.2.4-.3.5l-.5.6c-.2.2-.3.3-.1.6.2.3.9 1.5 1.9 2.4 1.3 1.1 2.4 1.5 2.7 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.8.9 2.1 1 .3.2.5.2.6.4.1.1.1.7-.2 1.4z"/></svg></a>
+        <a href="https://www.instagram.com/applebwoy_gadgets_0754011973" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="tel:+256754011973" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
       </div>
     </div>
+    <p class="disclaimer">
+      Applebwoy is an independent reseller in Kampala and is not affiliated with, endorsed by or sponsored by Apple Inc.
+      Apple, iPhone, iPad, Mac, MacBook, Apple Watch, AirPods and AirTag are trademarks of Apple Inc. Product images are
+      courtesy of Apple. Prices are in Ugandan Shillings (UGX), reflect current Kampala market rates, and may change with the
+      exchange rate — confirm the current price on WhatsApp before ordering.
+    </p>
   </div>
 </footer>
 
-<!-- TOAST -->
-<div class="toast" id="toast">Added to WhatsApp order! 🛒</div>
+<a href="https://wa.me/256754011973" target="_blank" rel="noopener" class="fab" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.8L0 24l6.3-1.6c1.7 1 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0zm7 17c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.8-5.7-5-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5.3.7 1 2.4 1.1 2.5.1.2.1.4 0 .6-.1.2-.2.4-.3.5l-.5.6c-.2.2-.3.3-.1.6.2.3.9 1.5 1.9 2.4 1.3 1.1 2.4 1.5 2.7 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.8.9 2.1 1 .3.2.5.2.6.4.1.1.1.7-.2 1.4z"/></svg>
+</a>
+
+<div class="toast" id="toast"></div>
 
 <script>
-const PHONE = "256754011973";
+(function () {
+  "use strict";
 
-const products = [
-  { id:1,  cat:"Smartphones", name:"iPhone 13 (128GB)",           desc:"Super Retina XDR, A15 Bionic, Dual Camera. Original UK/US spec.", price:"UGX 1,850,000", img:"https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=480&q=80", badge:"Hot" },
-  { id:2,  cat:"Smartphones", name:"iPhone 11 (64GB)",            desc:"6.1\u2033 Liquid Retina, Face ID, Dual 12MP camera system.", price:"UGX 980,000", img:"https://images.unsplash.com/photo-1574755393849-623942496936?w=480&q=80", badge:null },
-  { id:3,  cat:"Smartphones", name:"Samsung Galaxy A54",          desc:"6.4\u2033 Super AMOLED, 50MP triple camera, 5000mAh battery.", price:"UGX 1,200,000", img:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=480&q=80", badge:"New" },
-  { id:4,  cat:"Smartphones", name:"Tecno Spark 20 Pro",          desc:"6.78\u2033 FHD+, 108MP camera, 5000mAh. Budget flagship.", price:"UGX 680,000", img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=480&q=80", badge:null },
-  { id:5,  cat:"Smartphones", name:"Infinix Hot 40i",             desc:"6.56\u2033 display, 5000mAh, Helio G85. Great value.", price:"UGX 520,000", img:"https://images.unsplash.com/photo-1598327105854-c8674faddf79?w=480&q=80", badge:null },
-  { id:6,  cat:"Audio",       name:"AirPods Pro (2nd Gen)",       desc:"Active noise cancellation, Adaptive Transparency, MagSafe charging.", price:"UGX 380,000", img:"https://images.unsplash.com/photo-1588156979435-379b9d802b0a?w=480&q=80", badge:"Hot" },
-  { id:7,  cat:"Audio",       name:"Samsung Galaxy Buds2 Pro",    desc:"Hi-Fi 24-bit audio, ANC, IPX7 water resistance.", price:"UGX 280,000", img:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=480&q=80", badge:null },
-  { id:8,  cat:"Audio",       name:"ORAIMO FreePods 4",           desc:"ENC microphone, 30hr total playback, fast charge.", price:"UGX 75,000", img:"https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=480&q=80", badge:null },
-  { id:9,  cat:"Audio",       name:"Wired Earphones Type-C",      desc:"HiFi bass, inline mic, compatible with most Android phones.", price:"UGX 18,000", img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=480&q=80", badge:null },
-  { id:10, cat:"Accessories", name:"65W USB-C Fast Charger",      desc:"GaN PD charger, compatible with iPhone, Samsung, Tecno.", price:"UGX 45,000", img:"https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=480&q=80", badge:null },
-  { id:11, cat:"Accessories", name:"USB-C to USB-C Cable (2m)",   desc:"100W fast charge cable, braided, durable.", price:"UGX 22,000", img:"https://images.unsplash.com/photo-1601972602237-8c79241e468b?w=480&q=80", badge:null },
-  { id:12, cat:"Accessories", name:"Lightning Cable (1m)",        desc:"MFi certified Apple lightning cable. Genuine quality.", price:"UGX 25,000", img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=480&q=80", badge:null },
-  { id:13, cat:"Accessories", name:"OTG Adapter (USB-C)",         desc:"Plug-and-play USB-C OTG for drives, keyboards, and more.", price:"UGX 12,000", img:"https://images.unsplash.com/photo-1625895197185-efcec01cffe0?w=480&q=80", badge:null },
-  { id:14, cat:"Power",       name:"Romoss 20,000mAh Power Bank", desc:"65W PD output, fast charge 3 devices simultaneously.", price:"UGX 85,000", img:"https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=480&q=80", badge:"Hot" },
-  { id:15, cat:"Power",       name:"10,000mAh Slim Power Bank",   desc:"Pocket-sized, dual USB + USB-C, LED battery indicator.", price:"UGX 48,000", img:"https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=480&q=80", badge:null },
-  { id:16, cat:"Cases",       name:"iPhone 13 Silicone Case",     desc:"Soft microfibre lining, drop protection, MagSafe compatible.", price:"UGX 28,000", img:"https://images.unsplash.com/photo-1601593346740-925612772716?w=480&q=80", badge:null },
-  { id:17, cat:"Cases",       name:"Samsung A54 Shockproof Case", desc:"Military-grade corners, raised bezel screen protection.", price:"UGX 20,000", img:"https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?w=480&q=80", badge:null },
-  { id:18, cat:"Wearables",   name:"Smart Watch Pro X7",          desc:"Health monitoring, step counter, WhatsApp notifications, call support.", price:"UGX 95,000", img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=480&q=80", badge:null },
-  { id:19, cat:"Tablets",     name:"iPad (9th Gen, 64GB)",        desc:"10.2\u2033 Retina display, A13 Bionic, Wi-Fi. Original Apple.", price:"UGX 1,450,000", img:"https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=480&q=80", badge:null },
-  { id:20, cat:"Screen",      name:"Tempered Glass (Universal)",  desc:"9H hardness, anti-scratch, oleophobic coating. Most models available.", price:"UGX 8,000", img:"https://images.unsplash.com/photo-1592890288564-76628a30a657?w=480&q=80", badge:null },
-];
+  var PHONE = "256754011973";
 
-var currentFilter = "All";
+  /* ── CATEGORIES ─────────────────────────── */
+  var categories = [
+    { key:"iPhone",      name:"iPhone",          note:"17 Pro · Air · 17",   img:"assets/products/iphone-17-pro.webp" },
+    { key:"Mac",         name:"Mac",             note:"MacBook · iMac",      img:"assets/products/macbook-air.webp" },
+    { key:"iPad",        name:"iPad",            note:"Pro · Air · mini",    img:"assets/products/ipad-air.svg" },
+    { key:"Watch",       name:"Apple Watch",     note:"S11 · SE 3 · Ultra",  img:"assets/products/watch-s11.svg" },
+    { key:"AirPods",     name:"AirPods",         note:"Pro 3 · 4 · Max",     img:"assets/products/airpods-pro.svg" },
+    { key:"TV & Home",   name:"TV &amp; Home",   note:"Apple TV 4K",         img:"assets/products/apple-tv.svg" },
+    { key:"Vision",      name:"Vision Pro",      note:"Spatial computing",   img:"assets/products/vision-pro.svg" },
+    { key:"AirTag",      name:"AirTag",          note:"Find your things",    img:"assets/products/airtag-4pack.svg" },
+    { key:"HomePod",     name:"HomePod",         note:"Room-filling sound",  img:"assets/products/homepod-mini.svg" },
+    { key:"Accessories", name:"Accessories",     note:"MagSafe · cables",    img:"assets/products/magsafe.svg" }
+  ];
 
-function buildProductHTML(p) {
-  var msg = encodeURIComponent("Hi Applebwoy Gadgets! I'd like to order: *" + p.name + "* at " + p.price + ". Please confirm availability.");
-  var waLink = "https://wa.me/" + PHONE + "?text=" + msg;
-  return '<div class="product-card" data-cat="' + p.cat + '">' +
-    '<div class="product-img">' +
-      '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy" id="pimg' + p.id + '" />' +
-      '<div class="product-img-overlay"></div>' +
-    '</div>' +
-    '<div class="product-body">' +
-      (p.badge ? '<span class="product-badge">' + p.badge + '</span>' : '') +
-      '<div class="product-cat">' + p.cat + '</div>' +
-      '<div class="product-name">' + p.name + '</div>' +
-      '<p class="product-desc">' + p.desc + '</p>' +
-      '<div class="product-footer">' +
-        '<div class="product-price">' + p.price + '</div>' +
-        '<a href="' + waLink + '" target="_blank" class="order-btn">' +
-          '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.97 0C5.36 0 0 5.36 0 11.97c0 2.1.55 4.07 1.51 5.78L0 24l6.47-1.49c1.65.9 3.53 1.42 5.5 1.42C18.58 23.93 24 18.57 24 11.97 24 5.36 18.58 0 11.97 0z"/></svg>' +
-          ' Order' +
-        '</a>' +
-      '</div>' +
-    '</div>' +
-  '</div>';
-}
+  /* ── PRODUCTS (prices in UGX, incl. Kampala import cost) ── */
+  var products = [
+    /* iPhone — market prices sampled from Kampala Apple resellers (Aug 2026) */
+    { id:1, cat:"iPhone", name:"iPhone 17 Pro (256GB)", desc:"6.3\u2033 Super Retina XDR, A19 Pro, forged aluminium unibody, 48MP Fusion camera.", price:4780000, was:5100000, tag:"hot", rating:4.9, reviews:128, img:"assets/products/iphone-17-pro.webp" },
+    { id:2, cat:"iPhone", name:"iPhone 17 Pro Max (256GB)", desc:"6.9\u2033 display, biggest battery ever in an iPhone, 8x Telephoto zoom.", price:5250000, was:5600000, tag:"new", rating:4.9, reviews:96, img:"assets/products/iphone-17-pro-max.webp" },
+    { id:3, cat:"iPhone", name:"iPhone Air (256GB)", desc:"The thinnest iPhone ever. Titanium design, A19 Pro, all-day battery.", price:4680000, was:null, tag:"new", rating:4.8, reviews:74, img:"assets/products/iphone-air.webp" },
+    { id:4, cat:"iPhone", name:"iPhone 17 (256GB)", desc:"Magichromatic. 6.3\u2033 ProMotion display, A19 chip, Dual 48MP cameras.", price:3800000, was:3990000, tag:"hot", rating:4.8, reviews:212, img:"assets/products/iphone-17.webp" },
+    { id:5, cat:"iPhone", name:"iPhone 17e (128GB)", desc:"Feature stacked, value packed. A19 chip and a 48MP main camera.", price:2450000, was:null, tag:null, rating:4.7, reviews:64, img:"assets/products/iphone-17e.webp" },
 
-// FIX: attach onerror handlers after rendering, not inline (avoids quote-escaping issues)
-function attachImageFallbacks() {
-  products.forEach(function(p) {
-    var img = document.getElementById('pimg' + p.id);
-    if (img) {
-      img.onerror = function() {
-        this.parentElement.innerHTML = '<div class="product-img-fallback">📦</div>';
-      };
-    }
-  });
-}
+    /* Mac */
+    { id:6, cat:"Mac", name:"MacBook Air 13\u2033 (M4, 256GB)", desc:"Supercharged by Apple silicon. 18-hour battery, 1.24kg, Liquid Retina display.", price:4450000, was:4800000, tag:"hot", rating:4.9, reviews:154, img:"assets/products/macbook-air.webp" },
+    { id:7, cat:"Mac", name:"MacBook Pro 14\u2033 (M4, 512GB)", desc:"Pro power, Liquid Retina XDR, up to 24 hours of battery life.", price:5600000, was:null, tag:null, rating:5.0, reviews:88, img:"assets/products/macbook-pro.webp" },
+    { id:8, cat:"Mac", name:"MacBook Neo (256GB)", desc:"The magic of Mac at a surprising price. Four colours, all-day battery.", price:2950000, was:null, tag:"new", rating:4.7, reviews:41, img:"assets/products/macbook-neo.webp" },
+    { id:9, cat:"Mac", name:"iMac 24\u2033 (M4, 256GB)", desc:"All-in-one desktop in seven vivid colours, 4.5K Retina display.", price:5400000, was:null, tag:null, rating:4.8, reviews:57, img:"assets/products/imac.webp" },
 
-function renderProducts(filter) {
-  var grid = document.getElementById("productGrid");
-  var filtered = filter === "All" ? products : products.filter(function(p) { return p.cat === filter; });
-  grid.innerHTML = filtered.map(buildProductHTML).join('');
-  attachImageFallbacks();
-}
+    /* iPad */
+    { id:10, cat:"iPad", name:"iPad Pro 11\u2033 (M5, 256GB)", desc:"Ultra Retina XDR, thinnest Apple product ever, Apple Pencil Pro support.", price:5500000, was:null, tag:null, rating:4.9, reviews:73, img:"assets/products/ipad-pro.webp" },
+    { id:11, cat:"iPad", name:"iPad Air 11\u2033 (M3, 128GB)", desc:"Fast, light and perfect for study, design and streaming.", price:3150000, was:3500000, tag:"sale", rating:4.8, reviews:119, img:"assets/products/ipad-air.svg" },
+    { id:12, cat:"iPad", name:"iPad 11th Gen (128GB)", desc:"10.9\u2033 Liquid Retina, four colours. The everyday iPad for everyone.", price:1850000, was:1990000, tag:"hot", rating:4.7, reviews:186, img:"assets/products/ipad.svg" },
+    { id:13, cat:"iPad", name:"iPad mini (A17 Pro, 128GB)", desc:"8.3\u2033 in the palm of your hand. Apple Intelligence built in.", price:2250000, was:null, tag:null, rating:4.8, reviews:62, img:"assets/products/ipad-mini.svg" },
 
-// FIX: filterProducts now correctly handles both category card clicks (no btn) and filter button clicks (with btn)
-function filterProducts(cat, btn) {
-  currentFilter = cat;
-  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
-  if (btn && btn.classList.contains('filter-btn')) {
-    btn.classList.add('active');
+    /* Watch */
+    { id:14, cat:"Watch", name:"Apple Watch Series 11 (42mm)", desc:"The ultimate way to watch your health. Sleep score, hypertension alerts.", price:1800000, was:2000000, tag:"sale", rating:4.9, reviews:143, img:"assets/products/watch-s11.svg" },
+    { id:15, cat:"Watch", name:"Apple Watch SE 3 (40mm)", desc:"All the essentials. Crash Detection, sleep tracking and fitness.", price:1050000, was:null, tag:null, rating:4.7, reviews:98, img:"assets/products/watch-se.svg" },
+    { id:16, cat:"Watch", name:"Apple Watch Ultra 3 (49mm)", desc:"Titanium, 42-hour battery, satellite messaging. Built for adventure.", price:3400000, was:null, tag:"new", rating:5.0, reviews:47, img:"assets/products/watch-ultra.svg" },
+
+    /* AirPods */
+    { id:17, cat:"AirPods", name:"AirPods Pro 3", desc:"World's best in-ear ANC, heart rate sensing, Live Translation.", price:870000, was:1000000, tag:"hot", rating:4.9, reviews:231, img:"assets/products/airpods-pro.svg" },
+    { id:18, cat:"AirPods", name:"AirPods 4 (ANC)", desc:"Active Noise Cancellation, Adaptive Audio and wireless charging case.", price:560000, was:700000, tag:"sale", rating:4.8, reviews:167, img:"assets/products/airpods-4-anc.svg" },
+    { id:19, cat:"AirPods", name:"AirPods 4", desc:"Iconic. Now supersonic. Personalised Spatial Audio and USB-C case.", price:450000, was:null, tag:null, rating:4.7, reviews:203, img:"assets/products/airpods-4.svg" },
+    { id:20, cat:"AirPods", name:"AirPods Max 2", desc:"Over-ear, aluminium ear cups, computational audio. Free engraving.", price:2350000, was:2500000, tag:null, rating:4.8, reviews:59, img:"assets/products/airpods-max.svg" },
+
+    /* TV & Home */
+    { id:21, cat:"TV & Home", name:"Apple TV 4K (128GB)", desc:"Cinematic 4K HDR, Dolby Atmos and the Siri Remote.", price:850000, was:null, tag:null, rating:4.8, reviews:71, img:"assets/products/apple-tv.svg" },
+    { id:22, cat:"TV & Home", name:"HomePod mini", desc:"Room-filling sound, Siri built in, works with your Apple devices.", price:520000, was:null, tag:null, rating:4.6, reviews:84, img:"assets/products/homepod-mini.svg" },
+
+    /* Vision */
+    { id:23, cat:"Vision", name:"Apple Vision Pro (256GB)", desc:"Spatial computing. Order on request \u2014 we import to Kampala for you.", price:16500000, was:null, tag:null, rating:4.9, reviews:12, img:"assets/products/vision-pro.svg" },
+
+    /* AirTag & Accessories */
+    { id:24, cat:"AirTag", name:"AirTag (4 pack)", desc:"Keep track of keys, bags and more with the Find My network.", price:480000, was:null, tag:null, rating:4.8, reviews:132, img:"assets/products/airtag-4pack.svg" },
+    { id:25, cat:"AirTag", name:"AirTag (1 pack)", desc:"One tag, endless peace of mind. Precision Finding on iPhone.", price:150000, was:null, tag:null, rating:4.8, reviews:91, img:"assets/products/airtag.svg" },
+    { id:26, cat:"Accessories", name:"MagSafe Charger (1m)", desc:"Fast, snap-on wireless charging for iPhone. Genuine Apple.", price:185000, was:null, tag:null, rating:4.7, reviews:148, img:"assets/products/magsafe.svg" },
+    { id:27, cat:"Accessories", name:"20W USB-C Power Adapter", desc:"Fast, efficient charging at home, in the office or on the go.", price:95000, was:null, tag:null, rating:4.6, reviews:176, img:"assets/products/adapter-20w.svg" },
+    { id:28, cat:"Accessories", name:"USB-C Charge Cable (2m)", desc:"Braided, durable and built for fast charging and data.", price:110000, was:null, tag:null, rating:4.7, reviews:112, img:"assets/products/usbc-cable.svg" }
+  ];
+
+  /* ── HELPERS ────────────────────────────── */
+  function ugx(n) { return "UGX " + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+
+  function stars(r) {
+    var full = Math.floor(r), half = r - full >= .5, s = "";
+    for (var i = 0; i < full; i++) s += "\u2605";
+    if (half) s += "\u2606";
+    while (s.length < 5) s += "\u2606";
+    return s;
   }
-  renderProducts(cat);
-  document.getElementById('shop').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
 
-function showToast(msg) {
-  var t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(function() { t.classList.remove('show'); }, 3000);
-}
+  function waLink(p) {
+    var msg = "Hi Applebwoy! I'd like to order the *" + p.name + "* at " + ugx(p.price) + ". Is it in stock?";
+    return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(msg);
+  }
 
-function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
-function closeMenu()  { document.getElementById('mobileMenu').classList.remove('open'); }
+  function esc(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
-renderProducts("All");
+  /* ── RENDER CATEGORIES ──────────────────── */
+  function renderCategories() {
+    var el = document.getElementById("catGrid");
+    el.innerHTML = categories.map(function (c) {
+      return '<div class="cat-card" data-cat="' + esc(c.key) + '" role="button" tabindex="0">' +
+        '<div class="cat-thumb"><img src="' + c.img + '" alt="' + c.name + '" loading="lazy" /></div>' +
+        '<strong>' + c.name + '</strong><span>' + c.note + '</span></div>';
+    }).join("");
+    el.querySelectorAll(".cat-card").forEach(function (card) {
+      card.addEventListener("click", function () { filterProducts(card.dataset.cat); });
+      card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); filterProducts(card.dataset.cat); }
+      });
+    });
+    handleImageFallbacks(el);
+  }
+
+  /* ── RENDER FILTERS ─────────────────────── */
+  var FILTERS = ["All", "iPhone", "Mac", "iPad", "Watch", "AirPods", "TV & Home", "AirTag", "Accessories"];
+  var currentFilter = "All";
+  var currentQuery = "";
+
+  function renderFilters() {
+    document.getElementById("filters").innerHTML = FILTERS.map(function (f) {
+      return '<button class="fbtn' + (f === currentFilter ? " active" : "") + '" data-f="' + esc(f) + '">' + esc(f) + "</button>";
+    }).join("");
+    document.querySelectorAll(".fbtn").forEach(function (b) {
+      b.addEventListener("click", function () { filterProducts(b.dataset.f); });
+    });
+  }
+
+  /* ── RENDER PRODUCTS ────────────────────── */
+  function productHTML(p) {
+    var tag = p.tag ? '<span class="p-tag ' + p.tag + '">' + (p.tag === "sale" ? "Sale" : p.tag === "new" ? "New" : "Hot") + "</span>" : "";
+    var was = p.was ? "<s>" + ugx(p.was) + "</s>" : "";
+    return '<article class="p-card">' + tag +
+      '<div class="p-media"><img src="' + p.img + '" alt="' + esc(p.name) + '" loading="lazy" /></div>' +
+      '<div class="p-body">' +
+        '<div class="p-cat">' + esc(p.cat) + "</div>" +
+        '<h3 class="p-name">' + esc(p.name) + "</h3>" +
+        '<p class="p-desc">' + esc(p.desc) + "</p>" +
+        '<div class="p-rate"><span class="p-stars">' + stars(p.rating) + "</span> " + p.rating.toFixed(1) + " (" + p.reviews + ")</div>" +
+        '<div class="p-foot">' +
+          '<div class="p-price">' + ugx(p.price) + was + "</div>" +
+          '<a class="p-order" href="' + waLink(p) + '" target="_blank" rel="noopener" data-name="' + esc(p.name) + '">' +
+            '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.8L0 24l6.3-1.6c1.7 1 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0zm7 17c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.8-5.7-5-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5.3.7 1 2.4 1.1 2.5.1.2.1.4 0 .6-.1.2-.2.4-.3.5l-.5.6c-.2.2-.3.3-.1.6.2.3.9 1.5 1.9 2.4 1.3 1.1 2.4 1.5 2.7 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.8.9 2.1 1 .3.2.5.2.6.4.1.1.1.7-.2 1.4z"/></svg>' +
+            " Order</a>" +
+        "</div></div></article>";
+  }
+
+  function renderProducts() {
+    var grid = document.getElementById("grid");
+    var q = currentQuery.trim().toLowerCase();
+    var list = products.filter(function (p) {
+      var okCat = currentFilter === "All" || p.cat === currentFilter;
+      var okQ = !q || (p.name + " " + p.desc + " " + p.cat).toLowerCase().indexOf(q) > -1;
+      return okCat && okQ;
+    });
+    grid.innerHTML = list.length
+      ? list.map(productHTML).join("")
+      : '<p class="empty">No products match that search. Try “iPhone”, “Mac” or “AirPods”.</p>';
+
+    grid.querySelectorAll(".p-order").forEach(function (a) {
+      a.addEventListener("click", function () { showToast("Opening WhatsApp for " + a.dataset.name + " …"); });
+    });
+    handleImageFallbacks(grid);
+  }
+
+  /* graceful placeholder if an Apple CDN image is unavailable */
+  function handleImageFallbacks(scope) {
+    scope.querySelectorAll("img").forEach(function (img) {
+      img.addEventListener("error", function () {
+        var box = img.parentElement;
+        if (!box || box.querySelector(".p-fallback")) return;
+        box.innerHTML = '<div class="p-fallback">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="9" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>' +
+          "<span>Photo on WhatsApp</span></div>";
+      }, { once: true });
+    });
+  }
+
+  /* ── FILTER / SEARCH ────────────────────── */
+  function filterProducts(cat) {
+    currentFilter = cat;
+    renderFilters();
+    renderProducts();
+    var target = document.getElementById("products");
+    if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: "smooth" });
+  }
+  window.filterProducts = filterProducts;
+
+  var searchEl = document.getElementById("search");
+  if (searchEl) {
+    var t;
+    searchEl.addEventListener("input", function () {
+      clearTimeout(t);
+      t = setTimeout(function () {
+        currentQuery = searchEl.value;
+        if (currentQuery) currentFilter = "All";
+        renderFilters();
+        renderProducts();
+      }, 180);
+    });
+  }
+
+  /* ── COUNTDOWN (rolling 3-day deal window) ── */
+  function tick() {
+    var now = new Date();
+    var end = new Date(now);
+    end.setHours(23, 59, 59, 999);
+    end.setDate(end.getDate() + (2 - (now.getDate() % 3)));
+    var diff = end - now;
+    if (diff < 0) diff += 3 * 864e5;
+    var d = Math.floor(diff / 864e5),
+        h = Math.floor(diff % 864e5 / 36e5),
+        m = Math.floor(diff % 36e5 / 6e4),
+        s = Math.floor(diff % 6e4 / 1e3);
+    function set(id, v) { var e = document.getElementById(id); if (e) e.textContent = String(v).padStart(2, "0"); }
+    set("cd-d", d); set("cd-h", h); set("cd-m", m); set("cd-s", s);
+  }
+
+  /* ── TOAST + MENU ───────────────────────── */
+  var toastTimer;
+  function showToast(msg) {
+    var t = document.getElementById("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.classList.remove("show"); }, 2600);
+  }
+  window.toggleMenu = function () { document.getElementById("mobileMenu").classList.toggle("open"); };
+  window.closeMenu = function () { document.getElementById("mobileMenu").classList.remove("open"); };
+
+  /* ── INIT ───────────────────────────────── */
+  renderCategories();
+  renderFilters();
+  renderProducts();
+  tick();
+  setInterval(tick, 1000);
+})();
 </script>
 </body>
 </html>

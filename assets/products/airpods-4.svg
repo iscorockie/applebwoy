@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900"><rect width="900" height="900" fill="#ffffff"/><ellipse cx="450" cy="796" rx="145" ry="15" fill="#0f172a" opacity=".07"/>
+<defs><linearGradient id="c4" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e6eaf0"/></linearGradient></defs>
+<g>
+<ellipse cx="360" cy="318" rx="45" ry="54" fill="url(#c4)" stroke="#d2d8e0" stroke-width="2.5"/>
+<ellipse cx="360" cy="314" rx="23" ry="28" fill="#ccd2db"/>
+<path d="M341 364 q0-8 19-8 q19 0 19 8 l-3 126 q0 21-16 21 q-16 0-16-21z" fill="url(#c4)" stroke="#d2d8e0" stroke-width="2.5"/>
+</g>
+<g>
+<ellipse cx="498" cy="318" rx="45" ry="54" fill="url(#c4)" stroke="#d2d8e0" stroke-width="2.5"/>
+<ellipse cx="498" cy="314" rx="23" ry="28" fill="#ccd2db"/>
+<path d="M479 364 q0-8 19-8 q19 0 19 8 l-3 126 q0 21-16 21 q-16 0-16-21z" fill="url(#c4)" stroke="#d2d8e0" stroke-width="2.5"/>
+</g>
+<rect x="574" y="392" width="200" height="196" rx="54" fill="url(#c4)" stroke="#d2d8e0" stroke-width="2.5"/>
+<rect x="574" y="440" width="200" height="5" fill="#dbe0e7"/>
+</svg>

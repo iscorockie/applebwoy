@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900"><rect width="900" height="900" fill="#ffffff"/>
+<defs><radialGradient id="at" cx="0.35" cy="0.3" r="0.8">
+<stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe4ea"/></radialGradient>
+<radialGradient id="ats" cx="0.35" cy="0.3" r="0.8">
+<stop offset="0" stop-color="#fbfcfd"/><stop offset="1" stop-color="#c3cad3"/></radialGradient></defs>
+<ellipse cx="330" cy="392" rx="112" ry="26" fill="#0f172a" opacity=".06"/>
+<ellipse cx="570" cy="392" rx="112" ry="26" fill="#0f172a" opacity=".06"/>
+<ellipse cx="330" cy="700" rx="112" ry="26" fill="#0f172a" opacity=".06"/>
+<ellipse cx="570" cy="700" rx="112" ry="26" fill="#0f172a" opacity=".06"/>
+<circle cx="330" cy="330" r="104" fill="url(#at)" stroke="#d3d9e0" stroke-width="2.5"/>
+<circle cx="330" cy="330" r="66" fill="url(#ats)"/>
+<circle cx="570" cy="330" r="104" fill="url(#at)" stroke="#d3d9e0" stroke-width="2.5"/>
+<circle cx="570" cy="330" r="66" fill="url(#ats)"/>
+<circle cx="330" cy="638" r="104" fill="url(#at)" stroke="#d3d9e0" stroke-width="2.5"/>
+<circle cx="330" cy="638" r="66" fill="url(#ats)"/>
+<circle cx="570" cy="638" r="104" fill="url(#at)" stroke="#d3d9e0" stroke-width="2.5"/>
+<circle cx="570" cy="638" r="66" fill="url(#ats)"/>
+</svg>
